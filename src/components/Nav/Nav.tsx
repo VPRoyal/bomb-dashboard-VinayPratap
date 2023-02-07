@@ -131,6 +131,11 @@ const Nav = () => {
                 <span className={'navDropdownMenuRoot navLink ' + classes.link}>Earn</span>
                 <div className={'navDropdownMenuContainer'}>
                   <ul className={'navDropdownMenuWrapper'}>
+                  <li className={'navDropdownMenuItem'}>
+                      <Link to="/dashboard" className={'navLink ' + classes.link}>
+                        Dashboard
+                      </Link>
+                    </li>
                     <li className={'navDropdownMenuItem'}>
                       <Link to="/farm" className={'navLink ' + classes.link}>
                         Farm
