@@ -9,7 +9,7 @@ const BackgroundImage = createGlobalStyle`
     background-size: cover !important;
     background-color: #171923;
     overflow:hidden;
-`;
+  }`;
 const Dashboard = () =>{
   return (
     <>

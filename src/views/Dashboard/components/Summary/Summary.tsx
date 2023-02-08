@@ -1,23 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
-import Farm from './Farms'
+import Farms from './Farms'
 import Container from '../Elements/Container'
+import Epoch from './Epoch'
 export default function Summary() {
   return (
     <StyledSummary>
         <Container width={80} >
-            <Head>Bomb Finance Summary</Head>
+            <Title>Bomb Finance Summary</Title>
             <Section>
-                <Farm/>
+                <Farms/>
+                <Epoch/>
             </Section>
         </Container>
     </StyledSummary>
   )
 }
 
-const Head=styled.header`
+const Title=styled.header`
 &{
-    font-famil:Nunito;
+font-family:Nunito;
 font-style:Regular;
 font-size:16px;
 line-height:30px;
@@ -41,7 +43,7 @@ padding:5px 0px
 const Section=styled.div`
 display:flex;
 justify-content: space-between;
-
+padding:10px 0px;
 `
 const StyledSummary=styled.div`
 display:flex;
