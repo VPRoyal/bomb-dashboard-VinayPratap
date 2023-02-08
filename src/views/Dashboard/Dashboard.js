@@ -1,8 +1,8 @@
 import React from 'react'
-import Page from '../../components/Page'
 import { createGlobalStyle } from 'styled-components';
 import HomeImage from '../../assets/img/background.jpg';
 import Background from './components/Background/Background';
+import Summary from './components/Summary/Summary';
 const BackgroundImage = createGlobalStyle`
   body {
     background: url(${HomeImage}) repeat !important;
@@ -14,6 +14,7 @@ const Dashboard = () =>{
   return (
     <>
     <Background/>
+    <Summary/>
     </>
 
   )

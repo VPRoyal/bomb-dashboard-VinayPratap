@@ -18,7 +18,11 @@ body {
   overflow-y: auto;
   height: 100%;
 }
-
+*{
+  position: relative;
+  padding: 0px;
+  margin: 0px;
+}
 /* .makeStyles-paper-11, */
 /* .makeStyles-paper-11 h2, */
 /* .MuiTypography-body1,
