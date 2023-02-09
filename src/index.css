@@ -22,6 +22,7 @@ body {
   position: relative;
   padding: 0px;
   margin: 0px;
+  box-sizing: border-box;
 }
 /* .makeStyles-paper-11, */
 /* .makeStyles-paper-11 h2, */
