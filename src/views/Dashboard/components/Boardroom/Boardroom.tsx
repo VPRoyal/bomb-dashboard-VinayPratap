@@ -5,6 +5,7 @@ import ButtonB from '../Elements/Buttons/ButtonB'
 import DiscordImage from '../../../../assets/img/discordBlue.svg'
 import DocsImage from '../../../../assets/img/docs.svg'
 import Container from '../Elements/Container'
+import FCards from './FCards'
 export default function Boardroom() {
   return (
     <StyledBoardroom>
@@ -17,7 +18,7 @@ export default function Boardroom() {
             <ButtonB color='black' text='Chat on Discord' border='none' background='rgba(255, 255, 255, 0.5)' link={DocsImage} />
           </ButtonWrap>
           <Container width={100} border="1px solid #728CDF" >
-            
+            <FCards/>
           </Container>
         </Left>
         <Right>
@@ -36,7 +37,7 @@ justify-content:center;
 `
 const Wrapper=styled.div`
   display: flex;
-  border: solid 1px white;
+  /* border: solid 1px white; */
   width: 80%;
   column-gap: 20px;
 `
