@@ -1,24 +1,38 @@
 import React from 'react'
 import styled from 'styled-components'
-export default function Farm() {
-  return (
+import { roundAndFormatNumber } from '../../../../0x'
+import MetamaskFox from '../../../../assets/img/metamask-fox.svg';
+import useBombFinance from '../../../../hooks/useBombFinance';
+interface FormProps{
+priceInBNB:string,
+priceInDollar:string,
+CurrentSupply:number,
+TotalSupply:number,
+name:string,
+Icon:string
+}
+const Farm: React.FC<FormProps> = ({children, priceInBNB, priceInDollar, CurrentSupply, TotalSupply, name,Icon }) => {
+    const bombFinance = useBombFinance();
+    return (
     <Body>
         <Item start={1}  >
-            <span style={{width:'25px', height:'25px', display:'flex', alignItems:"center", justifyContent:"center", backgroundColor:"#373747", borderRadius:"50%"}} ><img style={{width:'20px', height:'20px'}} src={require('../../../../assets/img/bomb.png')} alt="" /></span>
-            <span>$BOMB</span>
+            <span style={{width:'25px', height:'25px', flexShrink:0, display:'flex', alignItems:"center", justifyContent:"center", backgroundColor:"#373747", borderRadius:"50%"}} ><img style={{width:'20px', height:'20px'}} src={Icon} alt="" /></span>
+            <span>${name}</span>
         </Item>
         <Item start={3} >
-            <span>8.66M</span>
+            <span>{roundAndFormatNumber(CurrentSupply, 2)}</span>
         </Item>
         <Item start={5} >
-            <span>60.9k</span>
+            <span>{roundAndFormatNumber(TotalSupply, 2)}</span>
         </Item>
         <Item start={7} style={{flexDirection:"column"}} >
-            <span>$0.24 </span>
-            <span>1.05 BTCB</span>
+            <span>${priceInDollar ? roundAndFormatNumber(Number(priceInDollar), 2) : '-.--'}</span>
+            <span>{priceInBNB ? priceInBNB : '-.----'} BTCB</span>
         </Item>
-        <Item start={9} >
-            <span style={{width:'30px'}} ><img src={require('../../../../assets/img/metamask-fox.svg')} alt="" /></span>
+        <Item start={9} onClick={() => {
+                  bombFinance.watchAssetInMetamask('BOMB');
+                }}  >
+            <span style={{width:'30px'}} ><img src={MetamaskFox} alt="" /></span>
         </Item>
     </Body>
   )
@@ -32,7 +46,10 @@ width: 100%;
 grid-template-columns: repeat(10, 1fr);
 padding: 10px 0px;
 }
-&::after{
+& + &{
+    border-top: rgba(195, 197, 203, 0.75) 0.5px solid;
+}
+/* &::after{
     content:'';
     position: absolute;
     width: 95%;
@@ -41,7 +58,7 @@ padding: 10px 0px;
     right: 0px;
     bottom: 0px;
 
-}
+} */
 `
 interface ItemProps{
     start:number;
@@ -55,4 +72,8 @@ color: white;
     align-items: center;
     text-align: center;
     justify-content: center;
+&:last-child{
+    cursor: pointer;
+}
 `
+export default Farm;
