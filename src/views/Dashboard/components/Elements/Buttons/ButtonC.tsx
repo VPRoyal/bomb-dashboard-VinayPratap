@@ -46,14 +46,12 @@ padding: 5px 8px;
     border-radius: 50%;
     background-color: ${(props)=>props.IBack || "white"};
     display: flex;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     justify-content: center;
     align-items: center;
-    padding: 2px;
 }
 & img{
-    object-fit: contain;
     width: 100%;
     height: 100%;
 }
