@@ -2,7 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import TextIcon from './TextIcon'
 import ButtonC from './Buttons/ButtonC'
-export default function CardBottom() {
+interface CardBottomProps{
+    tokenName:string
+    TVL:string
+    }
+    const CardHead: React.FC<CardBottomProps> = ({children, }) => {
   return (
     <Wrapper>
         <Body>
