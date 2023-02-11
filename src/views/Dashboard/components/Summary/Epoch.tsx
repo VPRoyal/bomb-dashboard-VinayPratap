@@ -1,20 +1,34 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import styled from 'styled-components'
+import moment from 'moment'
+import ProgressCountdown from '../../../Boardroom/components/ProgressCountdown'
+
+import useTreasuryAllocationTimes from '../../../../hooks/useTreasuryAllocationTimes';
+import useCurrentEpoch from '../../../../hooks/useCurrentEpoch';
+import useCashPriceInEstimatedTWAP from '../../../../hooks/useCashPriceInEstimatedTWAP';
+import useXbombAPR from '../../../../hooks/useXbombAPR';
+import { roundAndFormatNumber } from '../../../../0x';
 export default function Epoch() {
+    const currentEpoch = useCurrentEpoch();
+    const cashStat = useCashPriceInEstimatedTWAP();
+    const xbombAPR = useXbombAPR();
+    const scalingFactor = useMemo(() => (cashStat ? Number(cashStat.priceInDollars).toFixed(4) : null), [cashStat]);
+    const { to } = useTreasuryAllocationTimes();
+    const xbombTVL = useMemo(() => (xbombAPR ? Number(xbombAPR.TVL).toFixed(0) : null), [xbombAPR]);
   return (
     <Wrapper>
         <CurrentEpoch>
             <span>Current Epoch</span>
-            <span>258</span>
+            <span>{Number(currentEpoch)}</span>
         </CurrentEpoch>
         <NextEpoch>
-        <span>03:38:36</span>
+        <span><ProgressCountdown base={moment().toDate()} hideBar={true} deadline={to} description="Next Epoch" /></span>
             <span>Next Epoch in</span>
         </NextEpoch>
         <LiveEpoch>
-            <div><span>Live TWAP: </span><span>1.17</span></div>
-            <div><span>TVL: </span><span>$5,002,412</span></div>
-            <div><span>Last Epoch TWAP: </span><span>1.22</span></div>
+            <div><span>Live TWAP: </span><span>{scalingFactor}</span></div>
+            <div><span>TVL: </span><span>${roundAndFormatNumber(Number(xbombTVL), 2)}</span></div>
+            <div><span>Last Epoch TWAP: </span><span>3435</span></div>
         </LiveEpoch>
     </Wrapper>
   )

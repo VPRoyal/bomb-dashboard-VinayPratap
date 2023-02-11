@@ -12,7 +12,7 @@ interface ButtonAProps{
 const ButtonA: React.FC<ButtonAProps> = ({children, href, onclick,text, border, background, color,link}) => {
   
   return (
-    <StyledButton background={background} color={color} border={border}><span><img src={link} alt="" /></span><span>{text}</span></StyledButton>
+    <StyledButton background={background} color={color} border={border}><span><img src={link} alt="" /></span><span><a href={href} target="__blank">{text}</a></span></StyledButton>
   )
 }
 interface ButtonProps{
@@ -47,11 +47,16 @@ padding: 5px;
     justify-content: center;
     align-items: center;
     padding: 2px;
+    
 }
 & img{
     object-fit: contain;
     /* width: 90%;
     height: 90%; */
+}
+& a{
+  text-decoration: none;
+  color: inherit;
 }
 `
 export default ButtonA

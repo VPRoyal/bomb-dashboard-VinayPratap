@@ -1,12 +1,19 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components'
 import CardHead from '../Elements/CardHead'
 import TextIcon from '../Elements/TextIcon'
 import CardBottom from '../Elements/CardBottom'
-export default function FCards() {
+import UnlockWallet from '../../../../components/UnlockWallet'
+
+import useWallet from 'use-wallet'
+import useStatsForPool from '../../../../hooks/useStatsForPool'
+
+const FCards=({bank}) => {
+  
+  let statsOnPool=useStatsForPool(bank)
   return (
     <FWrap>
-        <CardHead/>
+        <CardHead tokenName={bank.depositTokenName} TVL={statsOnPool?.TVL} />
         <TotalStake>
             <div><span>Total Staked: </span></div>
             <TextIcon ImgSize={16} src={require('../../../../assets/img/bshares.png')} text={"7232"} />
@@ -30,3 +37,4 @@ font-size: 14px;
 line-height: 19px;
 color: #FFFFFF;
 `
+export default FCards;

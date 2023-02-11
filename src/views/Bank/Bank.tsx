@@ -38,7 +38,6 @@ const Bank: React.FC = () => {
   const {account} = useWallet();
   const { onRedeem } = useRedeem(bank);
 
-
    let statsOnPool = useStatsForPool(bank);
   // console.log(statsOnPool);
 

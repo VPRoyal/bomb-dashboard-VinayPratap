@@ -1,16 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
-export default function Far() {
-  return (
+import TokenSymbol from '../../../../components/TokenSymbol'
+
+interface CardHeadProps{
+tokenName:string
+TVL:string
+}
+const CardHead: React.FC<CardHeadProps> = ({children, tokenName,TVL}) => {
+  
+  return(
     <Wrapper>
-        <Image><img src={require('../../../../assets/img/bshares.png')} alt="" /></Image>
+        <Image><TokenSymbol size={48} symbol={tokenName} /></Image>
         <Heading>
-          <div><span>Boardroom</span><span>Recommended</span></div>
+          <div><span>{tokenName}</span><span>Recommended</span></div>
           <div><span>Stake BSHARE and earn BOMB every epoch</span></div>
         </Heading>
         <Tvl>
           <span>TVL: </span>
-          <span>$1,008,430</span>
+          <span>${TVL}</span>
         </Tvl>
     </Wrapper>
   )
@@ -33,13 +40,9 @@ padding-bottom: 10px;
 `
 const Image=styled.div`
 display: flex;
-width: 48px;
 align-items: center;
 justify-content: center;
-& img{
-  width: 100%;
-  height: 100%;
-}
+padding: 0px 10px;
 `
 const Heading=styled.div`
 & div:first-child{
@@ -78,3 +81,4 @@ font-size:16px;
 line-height: 21px;
 }
 `
+export default CardHead;

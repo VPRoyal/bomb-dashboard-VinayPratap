@@ -7,6 +7,8 @@ import Boardroom from './components/Boardroom/Boardroom';
 import styled from 'styled-components';
 import BFarms from './components/BFarms/BFarms';
 import Bonds from './components/Bonds/Bonds';
+import useWallet from 'use-wallet';
+import UnlockWallet from '../../components/UnlockWallet';
 const BackgroundImage = createGlobalStyle`
   body {
     background: url(${HomeImage}) repeat !important;
@@ -15,7 +17,8 @@ const BackgroundImage = createGlobalStyle`
     overflow:hidden;
   }`;
 const Dashboard = () =>{
-  return (
+  const {account} = useWallet();
+  return account? (
     <>
     <Background/>
     <StyledWrapper>
@@ -26,7 +29,7 @@ const Dashboard = () =>{
     </StyledWrapper>
     </>
 
-  )
+  ):<Connect><h2>Please Connect First to see the Dashboard</h2><UnlockWallet/></Connect>
 }
 const StyledWrapper=styled.div`
 display: flex;
@@ -34,5 +37,12 @@ width: 100%;
 padding: 10px 0px;
 flex-direction: column;
 row-gap: 20px;
+`
+const Connect=styled.div`
+display: flex;
+flex-direction: column;
+row-gap: 50px;
+padding: 30px;
+text-align: center;
 `
 export default Dashboard;

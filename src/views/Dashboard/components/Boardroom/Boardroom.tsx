@@ -11,14 +11,14 @@ export default function Boardroom() {
     <StyledBoardroom>
       <Wrapper>
         <Left>
-          <Link><span><a href="">Read Investment Strategy</a></span><span><img src={require('../../../../assets/img/RArrow.svg')} alt="" /></span></Link>
-          <ButtonA color='white' text='Invest Now' border='0.5px solid #E41A1A' background='radial-gradient(59345.13% 4094144349.28% at 39511.5% -2722397851.45%, rgba(0, 245, 171, 0.5) 0%, rgba(0, 173, 232, 0.5) 100%)' />
+          <Link><span><a href="https://bombbshare.medium.com/the-bomb-cycle-how-to-print-forever-e89dc82c12e5">Read Investment Strategy</a></span><span><img src={require('../../../../assets/img/RArrow.svg')} alt="" /></span></Link>
+          <ButtonA color='white' text='Invest Now' border='0.5px solid #E41A1A' background='radial-gradient(59345.13% 4094144349.28% at 39511.5% -2722397851.45%, rgba(0, 245, 171, 0.5) 0%, rgba(0, 173, 232, 0.5) 100%)' to='/' />
           <ButtonWrap>
-            <ButtonB color='black' text='Chat on Discord' border='none' background='rgba(255, 255, 255, 0.5)' link={DiscordImage} />
-            <ButtonB color='black' text='Chat on Discord' border='none' background='rgba(255, 255, 255, 0.5)' link={DocsImage} />
+            <ButtonB color='black' text='Chat on Discord' border='none' background='rgba(255, 255, 255, 0.5)' link={DiscordImage} href='https://discord.bomb.money' />
+            <ButtonB color='black' text='Read Docs' border='none' background='rgba(255, 255, 255, 0.5)' link={DocsImage} href='https://docs.bomb.money/' />
           </ButtonWrap>
           <Container width={100} border="1px solid #728CDF" >
-            <FCards/>
+            {/* <FCards bank={null}/> */}
           </Container>
         </Left>
         <Right>

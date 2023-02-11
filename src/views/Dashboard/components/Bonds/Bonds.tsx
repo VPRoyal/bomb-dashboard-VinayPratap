@@ -8,7 +8,7 @@ export default function Bonds() {
     return (
         <Wrapper>
             <Container width={80} border="1px solid #728CDF">
-                <CardHead />
+                {/* <CardHead tokenName='XYZ' /> */}
                 <Footer>
                     <Left>
                         <div>
